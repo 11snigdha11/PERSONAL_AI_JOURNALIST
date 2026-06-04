@@ -87,5 +87,5 @@ NOTES
 
 ---
 SUPPORT
-Open an issue: https://github.com/yourusername/NewsNinja/issues
+
 Bright Data support: https://brightdata.com/support
