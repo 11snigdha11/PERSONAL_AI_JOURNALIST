@@ -1,7 +1,4 @@
 
-
-
-```markdown
 # 🎙️ NewsTeller: An Autonomous Agentic AI Journalist Network
 
 NewsTeller is a fully decoupled, multi-stream data ingestion and audio synthesis platform that transforms a traditional web scraper into a live, autonomous digital newsroom. By combining **deterministic traditional web crawling** with an **autonomous Model Context Protocol (MCP) LangGraph AI Agent**, the application functions as a complete virtual news channel. 
