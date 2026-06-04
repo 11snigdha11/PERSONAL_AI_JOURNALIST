@@ -1,0 +1,6 @@
+# Local environment variables
+.env
+
+# Virtual environments
+.venv/
+Pipfile.lock
