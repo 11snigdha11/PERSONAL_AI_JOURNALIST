@@ -10,26 +10,25 @@ The system independently scopes out targeted topics, bypasses modern web firewal
 
 NewsTeller uses a decoupled **Client-Server (Frontend-Backend) Architecture**. This ensures that the user interface is completely separate from the heavy, resource-intensive scraping and AI logic.
 
-              ┌──────────────────────────────┐
-              │   frontend.py (Streamlit)    │
-              └──────────────┬───────────────┘
-                             │
-               HTTP POST     │     Raw Audio
-              JSON Payload   │    Binary Stream
-                             ▼
-              ┌──────────────────────────────┐
-              │    backend.py (FastAPI)      │
-              └──────────────┬───────────────┘
-                             │
-     ┌───────────────────────┴───────────────────────┐
-     ▼                                               ▼
-┌──────────────────────────────┐                ┌──────────────────────────────┐
-│  News_scraper.py (Standard)  │                │ Reddit_scraper.py (Agentic)  │
-├──────────────────────────────┤                ├──────────────────────────────┤
-│ • Targets Google News Feeds  │                │ • LangGraph ReAct Agent Loop │
-│ • Bright Data Web Unlocker   │                │ • @brightdata/mcp Server     │
-│ • Rules-Based Parser         │                │ • Autonomous Critical Sorting│
-└──────────────────────────────┘                └──────────────────────────────┘
+```markdown
+```mermaid
+graph TD
+    A[frontend.py Streamlit] -- "HTTP POST (JSON Payload)" --> B[backend.py FastAPI]
+    B -- "Raw Audio (Binary Stream)" --> A
+    B --> C[News_scraper.py Standard]
+    B --> D[Reddit_scraper.py Agentic]
+
+    subgraph News Pipeline
+    C --> C1[Targets Google News Feeds]
+    C --> C2[Bright Data Web Unlocker]
+    C --> C3[Rules-Based Parser]
+    end
+
+    subgraph Agentic Pipeline
+    D --> D1[LangGraph ReAct Agent Loop]
+    D --> D2[@brightdata/mcp Server]
+    D --> D3[Autonomous Critical Sorting]
+    end
 
 
 ### 1. The Client UI (`frontend.py`)
